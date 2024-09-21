@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Classifier</title>
+</head>
+<body>
+    <h1>Image Classification</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*">
+        <input type="submit" value="Upload">
+    </form>
+    {% if predictions %}
+        <h2>Predictions:</h2>
+        <ul>
+        {% for pred in predictions %}
+            <li>{{ pred[1] }}: {{ pred[2] | round(4) }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
